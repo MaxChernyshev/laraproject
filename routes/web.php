@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\MainController;
+use App\Http\Controllers\Admin\AdminPanelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,16 @@ use App\Http\Controllers\Site\MainController;
 
 Route::get('/', [MainController::class, 'index'])->name('main.page');
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+
+// Admin
+
+Route::prefix('admin')
+    ->name('admin.')
+//    ->middleware('admin')
+    ->group(function ()
+{
+    Route::get('/', [AdminPanelController::class, 'index'])->name('dashboard');
+
+//    Route::resource('/users', UserController::class)->only(['index', 'destroy', 'edit', 'update']);
+}
+);

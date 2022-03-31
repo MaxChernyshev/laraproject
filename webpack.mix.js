@@ -15,3 +15,17 @@ mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         //
     ]);
+
+
+
+// ADMIN
+mix.js([
+    // 'resources/js/admin/app.js',
+    'node_modules/admin-lte/dist/js/adminlte.js',
+    // '~plugins/jquery/jquery.min.js',
+    // '~plugins/bootstrap/js/bootstrap.bundle.min.js',
+    // '~dist/js/adminlte.min.js',
+], 'public/js/admin/js')
+    .copy('node_modules/admin-lte/dist/css/adminlte.css', 'public/css/admin/css')
+    // .sass('node_modules/admin-lte/dist/css/adminlte.css', 'public/css/admin/css')
+    .sourceMaps();
